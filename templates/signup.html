@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<center>Welcome to the Interest Network</center>
+{% endblock %}
+			
+{% block content %}
+<center>
+<table class='signup'>
+	<tr>
+		<td class='label'>Username</td>
+		<td><input type="text" name="username" value={{username}}></td>
+		<td class="error">{{err_user}}</td>
+	</tr>	
+	<tr>
+		<td class='label'>Password</td>
+		<td><input type="text" name="password" value=''></td>
+		<td class='error'>{{err_pass}}</td>
+	</tr>
+	<tr>
+		<td class='label'>Name</td>
+		<td><input type="text" name="name" value = {{name}}></td>
+		<td class="error">{{err_name}}</td>
+	</tr>
+	<tr>
+		<td class='label'>Id Number</td>
+		<td><input type="text" name="idNum" value = {{idNum}}></td>
+	</tr>
+</table>
+	<h4>Already a member? <A href='/login'>Sign In</A></h4>
+	<h4>Club officer? <A href='/createClub'>Create a club</A></h4>
+	<h4>Just browsing? <A href='/allClubs'>View all Clubs</A></h4>
+</center>
+
+{% endblock %}

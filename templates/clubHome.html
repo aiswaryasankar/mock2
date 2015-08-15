@@ -1,0 +1,49 @@
+{% extends 'homeBase.html' %}
+
+{% block headerBar %}
+	<table>
+		<tr>
+			<td><img src = {{club.picUrl}} ></td>
+			<td>
+				<table class= 'infoTable'>
+					<tr> 
+					<td><h1>{{club.name}}</h1></td>
+					</tr>
+					<tr>
+					<tr> 
+					<td><strong>
+						Meets on 
+						{% for m in club.days %}{{m}}, {% endfor %} in {{club.location}} during {{club.time}}</strong></td>
+					</tr>
+					<td><strong>Interests: </strong>
+					{% for x in club.interests %}{{x}}, {% endfor %}
+					</td>
+					</tr>
+					<tr>
+					<td><strong>Officers: </strong>
+					{% for m in offNames %}{{m}}, {% endfor %}
+					</td>
+					</tr>
+					<tr> 
+					<td><strong>Club Adviser: {{club.adviser}}</strong></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+{% endblock %}
+
+{% block newPost %}
+	{% if isOfficer %}
+		<form class = 'newPost' method='post'>
+			{{club.render_new_post() | safe }}
+			<input type='hidden' name='form_name' value='newPost'>
+  		</form>
+	{% endif %}
+
+{% endblock %}
+
+
+{% block wall %}
+	{{super()}}
+{% endblock %}

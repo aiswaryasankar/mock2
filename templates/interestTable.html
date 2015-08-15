@@ -1,0 +1,24 @@
+
+<table>
+<tr> 
+	{% for x in range(0,5) %}
+		<td>
+			<img src = {{int_list[num*5 + x].picUrl}} style="width:235px;height:250px;">
+		</td>
+		<td style='width: 150px;'>
+		</td>
+	{% endfor %}
+</tr>
+<tr>
+	{% for x in range(0,5) %}
+	<td style='text-align: center;'>
+		<input type="checkbox" name='interests' style='padding: 30%;'
+			value={{(int_list[num* 5 + x].name).strip()}}>
+			{{(int_list[num* 5 + x].name).strip()}}
+		</input>
+	</td>
+	<td style='width:550px;'>
+	</td>
+	{% endfor %}
+</tr>
+</table>

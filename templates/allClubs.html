@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<link type="text/css" rel="stylesheet" href="/static/main.css" />
+			<title>
+				Interest Network
+			</title>
+	</head>
+
+	<body>
+		<center>
+		<div class='allClubs'>
+			<h1>All Clubs</h1>
+			<right><h5><A href='/'>Sign Up</A></h5></right>
+				<table>
+				{% for row in range (0, length) %} 
+					<tr> 
+					{% for col in range(0,5) %}
+						<td>
+							{% if clubs[5*row + col] %}
+								<img src = {{clubs[2*row + col].picUrl}} style="width:235px;height:250px;"><h5>{{clubs[5*row + col].name}}</h5>
+							{% endif %}
+						</td>
+					{% endfor %}
+					</tr>
+				{% endfor %}
+
+
+		</center>
+	</body>
+</html>

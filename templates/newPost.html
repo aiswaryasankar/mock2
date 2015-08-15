@@ -1,0 +1,19 @@
+      <table>
+        <tr>
+          <td>
+            <textarea name="content">Share something interesting{{content}}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select name='eventType' value='Event Type' style='margin-left: 22%;'>
+              {% for x in range(0,5) %}
+                <option>{{eventType[x]}}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <input type='submit' value='Post'>
+          </td>
+        </tr>
+      </table>

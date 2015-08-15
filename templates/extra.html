@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<link type="text/css" rel="stylesheet" href="/static/main.css" />
+			<title>
+				Interest Network
+			</title>
+	</head>
+
+	<body>
+		<center>
+		{% if thanks %}
+			<h1>
+			{% if x %}
+				Thank you for creating the {{name}}!
+			{% else %}
+				Thank you for creating {{name}} club!
+			{% endif %}
+			</h1>
+			<h3>Please <A href='/'> sign in </A> with your student account to start writing club posts.</h3>
+		{% else %}
+			<h1>Sorry that club no longer exists</h1>
+		{% endif %}
+		</center>
+	</body>
+</html>
+
+			

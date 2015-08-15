@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<link type="text/css" rel="stylesheet" href="/static/main.css" />
+			<title>
+				Interest Network
+			</title>
+	</head>
+
+	<body>
+		{% block topBar %}
+		<form method='post'>
+			<table style='float:right; background-color: blue; width: 100%; height: 50px;'>
+				<tr>
+					<td>
+						<select name='club'>
+							{% for x in clubs %}
+							<option>{{x}}</option>
+							{% endfor %}
+						</select>
+					</td>
+					<td>
+						<input type='submit' value='Search'>
+					</td>
+					<td>
+						<h4><A href='/home'>Home</A></h4>
+					</td>
+					<td>
+						<h4><A href='/logout'>Logout</A><h4>
+					</td>
+				</tr>
+			</table>
+			<input type='hidden' name='form_name' value='search'>
+		</form>
+		{% endblock %}
+		<div class='homePageBody'>
+			<div class='header'>
+				{% block headerBar %}
+				{% endblock %}
+			</div>
+			<br>
+			{% block newPost %}
+  			{% endblock %}
+
+ 			<br> <br>
+ 			{% block wall %}
+ 				<div class = 'posts'>
+ 					{% for p in posts %}
+						{{p.render_post() | safe}}
+					{% endfor %}
+				</div>
+ 			{% endblock %}
+ 		</div>
+	</body>
+
+</html>

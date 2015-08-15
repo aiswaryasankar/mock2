@@ -1,0 +1,17 @@
+{% extends 'homeBase.html' %}
+
+{% block headerBar %}
+	<h1>{{user.name}}</h1>
+	<span>
+		<h3>Interests: </h3><h5>{% for x in intList %}{{x}}, {% endfor %}</h5>
+	</span>
+{% endblock %}
+
+
+	{% block newPost %}
+		
+	{% endblock %}
+
+{% block wall %}
+	{{super()}}
+{% endblock %}

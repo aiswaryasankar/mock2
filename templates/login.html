@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<center>The Interest Network</center>
+{% endblock %}
+			
+{% block content %}
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="Email" name="username" value={{username}}>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword3" placeholder="Password" name="password" value={{password}}>
+    </div>
+  </div>
+  <div class="error">{{err1}}</div>
+
+  <!-- <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div> -->
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </div>
+  </div>
+  <h5>Not a member?<A href='/'>Sign up</A><h5>
+  </form>
+
+  
+<!-- <form method='post'>
+<center>
+	<label>
+		<div>Username
+			<input type="text" name="username" value={{username}}> 
+		</div>
+	</label>
+	<br>
+	<label>
+		<div>Password
+			<input type="text" name="password" value={{password}}>
+		</div>
+	</label>
+	<div class="error">{{err1}}</div>
+
+	<h5>Not a member?<A href='/'>Sign up</A><h5>
+</center>
+</form> -->
+{% endblock %}
