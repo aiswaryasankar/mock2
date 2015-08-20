@@ -1,12 +1,49 @@
-      <table>
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-2">
+     <textarea class="form-control" name='content' rows="4" style='width:800px;'>Share something interesting{{content}}</textarea>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-3 col-md-offset-6">
+    <select name='eventType' value='Event Type' class='form-control'>
+        {% for x in range(0,5) %}
+          <option>{{eventType[x]}}</option>
+        {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2 col-md-offset-1">
+    <input type='submit' value='Post'>
+  </div>
+</div>
+
+  <br>
+      
+     <!--  <div class="row">
+        <div class="col-md-8">
+          <textarea class="form-control" name='content' rows="4">Share something interesting{{content}}</textarea>
+        </div>
+        <div class="col-md-6">
+          <select name='eventType' value='Event Type' class='form-control' style='margin-left: 22%;'>
+              {% for x in range(0,5) %}
+                <option>{{eventType[x]}}</option>
+              {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2"><input type='submit' value='Post'></div>
+      </div> -->
+
+
+     <!--  <table>
         <tr>
           <td>
-            <textarea name="content">Share something interesting{{content}}</textarea>
+            <textarea class="form-control" name='content' rows="4">Share something interesting{{content}}</textarea>
           </td>
         </tr>
         <tr>
           <td>
-            <select name='eventType' value='Event Type' style='margin-left: 22%;'>
+            <label style='margin-left: 20%;'>Event Type</label>
+              <select name='eventType' value='Event Type' class='form-control' style='margin-left: 22%;'>
               {% for x in range(0,5) %}
                 <option>{{eventType[x]}}</option>
               {% endfor %}
@@ -16,4 +53,4 @@
             <input type='submit' value='Post'>
           </td>
         </tr>
-      </table>
+      </table> -->

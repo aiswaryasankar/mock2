@@ -1,43 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    	
+    	<meta name="description" content="">
+    	<meta name="author" content="">
+    	<link rel="icon" href="../../favicon.ico">
+
+    	<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    	<link href="navbar-fixed-top.css" rel="stylesheet">
+
   		<link type="text/css" rel="stylesheet" href="/static/main.css" />
-			<title>
-				Interest Network
-			</title>
+		<title>MyNiche</title>
 	</head>
 
 	<body>
 		{% block topBar %}
-		<form method='post'>
-			<table style='float:right; background-color: blue; width: 100%; height: 50px;'>
-				<tr>
-					<td>
-						<select name='club'>
-							{% for x in clubs %}
-							<option>{{x}}</option>
-							{% endfor %}
-						</select>
-					</td>
-					<td>
-						<input type='submit' value='Search'>
-					</td>
-					<td>
-						<h4><A href='/home'>Home</A></h4>
-					</td>
-					<td>
-						<h4><A href='/logout'>Logout</A><h4>
-					</td>
-				</tr>
-			</table>
-			<input type='hidden' name='form_name' value='search'>
-		</form>
+		<!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">MyNiche</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Club Search <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+              	{% for x in range(0, length) %}
+					<li><A href="/clubHome/{{clubIds[x]}}">{{clubs[x]}}</A></li>
+				{% endfor %}
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	{% if account %}
+            	<li><a href="/home">Home</a></li>
+            	{% if isClub and isOfficer %}
+            		<li><a href='/editClub'>Edit Profile</a></li>
+            	{% elif not isClub %}
+					<li><a href='/interest'>Edit Profile</a></li>
+            	{% endif %}
+            	<li><a href="/logout">Logout</a></li>
+            {% else %}
+            	<li><a href="/">Create an account</a><li>
+            {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
 		{% endblock %}
 		<div class='homePageBody'>
-			<div class='header'>
+			
 				{% block headerBar %}
 				{% endblock %}
-			</div>
+			
 			<br>
 			{% block newPost %}
   			{% endblock %}
@@ -51,6 +84,10 @@
 				</div>
  			{% endblock %}
  		</div>
+
+ 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 
+   		<script src="js/bootstrap.min.js"></script>
 	</body>
 
 </html>

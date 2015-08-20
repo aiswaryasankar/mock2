@@ -16,11 +16,12 @@
 body {
 	margin:0px;
 	padding:0px;
+	padding-top: 10px; 
 }
 
 img {
-	width:175px;
-	height:225px;
+	width:150px;
+	height:175px;
 }
 .header {
 	border-width:thin;
@@ -44,12 +45,15 @@ img {
 	width: 100%;
 }
 
+.jumbotron{
+	padding: 1.5%;
+}
 td {
 	border-right: thin;
 }
 
-table tr td {
-    width: 150px;
+table tr td textarea {
+	width: 800px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -64,11 +68,11 @@ table tr td {
 }
 
 textarea {
-	margin-left: 22%;
-	margin-right: 18%;
-	padding: 17px;
-	width: 800px;
-  	height: 100px;
-  	font-size: 17px;
+	/*margin-left: 22%;
+	margin-right: 18%;*/
+	padding: 25px;
+	/*width: 800px;
+  	height: 100px;*/
+ 	font-size: 25px;
   	font-family: monospace;
 }

@@ -1,4 +1,19 @@
 
+
+
+<div class="row">
+	<div class="col-md-2 col-md-offset-2">
+	<img src= {{p.picUrl}} style="width:110px;height:80px;border:thin;color:black;">
+</div>
+  <div class="col-md-6">
+  	<div class='well'>
+		<h2><A href='/clubHome/{{p.inputter}}'>{{p.title}}</A></h2>
+  		<blockquote style='margin-left:25px;'>{{p.content | safe}}</blockquote>
+  	</div>
+  </div>
+</div>
+
+<!-- 
 <table id='postTable'>
 	<tr>
 		<td>
@@ -9,4 +24,4 @@
   			<h5>{{p.content | safe}}<h5>
 		</td>
 	</tr>
-</table>
+</table> -->

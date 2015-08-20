@@ -1,59 +1,82 @@
 {% extends "base.html" %}
 
 {% block title %}
-	Welcome to the Interest Network
+	Welcome to MyNiche
 {% endblock %}
 			
 {% block content %}
-	<label>
-		<div>Club Name</div>
-			<input type="text" name="name" value={{name}}> 
-	</label>
-	<div class="error">{{err_user}}</div>
+<form method='post' style='margin-right:50%; margin-left:5%; '>
+	<div class="form-group">
+    	<label for="club">Club Name</label>
+    		<input type="text" class="form-control" id="club" placeholder="Club Name" name="name" value={{name | safe}}>
+  	</div>
+  	<div class="error">{{err_user}}</div>
 
-	<label>
-		<div>Meeting Location</div>
-			<input type='text' name='location' value={{location}}>
-	</label>
+ 	<div class="form-group">
+    	<label for="meeting">Meeting Location</label>
+    		<input type="text" class="form-control" id="meeting" placeholder="Meeting Location" name='location' value={{location}}>
+  	</div>
+	
 	<label>
 		<div>Meeting Day</div>
 		{% for x in week %}
-			<input type="checkbox" name='days' value={{x}}>{{x}}</input>
+			<label class='checkbox-inline'>
+				<input type="checkbox" name='days' value={{x}}>{{x}}</input>
+			</label>
 		{% endfor %}
-	<label>
-
-	<label>
-		<div>Meeting Time</div>
-			<select name='time'>
+	</label>
+	<br>
+	<br>
+	<label>Meeting Time</label>
+			<select name='time' class='form-control'>
 				<option>Brunch</option>
 				<option>Lunch</option>
 				<option>After School</option>
 			</select>
-	</label>
-
-	<label>
-		<div>Officer Ids</div>
+	<br>
+	
+	<div class="form-horizontal">
+		<label>Officer Ids</label>
+		<h5>* Please input each officer's student id. If needed, you will be able to add more officer ids to your club later.</h5>
 			{% for x in range(1,5) %}
-				Officer {{x}} <input type='text' name='officers'>
-				<br>
+    			<!-- <label for="id">Officer {{x}}</label> -->
+    			<input type="text" class="form-control" id="id" placeholder="Officer {{x}} id" name='officers' value={{officers | safe }}>
 			{% endfor %}
-	</label>
-	<label>
-		<div>Club Adviser</div>
-			<input type='text' name='adviser' value={{adviser}}>
-	</label>
 
-	<label>
-		<div>Club Logo Url</div>
-			<input type="text" name="picUrl" value=''>
-	</label>
+	</div>
+	<br>
+	<div class="form-group">
+    	<label for="adviser">Club Adviser</label>
+    		<input type="text" class="form-control" id="adviser" placeholder="Club Adviser" name='adviser' value={{adviser}}>
+  	</div>
+	<br>
+
+<!--    	<div class="form-group">
+    	<label for="exampleInputFile">File input</label>
+    	<input type="file" id="exampleInputFile">
+    	<p class="help-block">Or you can input a url.</p>
+  	</div>  -->
+  	<div class="form-group">
+    	<label for="logo">Club Logo Url</label>
+    		<input type="text" class="form-control" id="logo" placeholder="Url" name='picUrl' value={{picUrl}}>
+  	</div>
 
 	<hr>
 	<label>
 		<div>Choose interest categories:</div>
-			{% for x in topic_list %}
-				<input type="checkbox" name='interests' value={{x}}>{{x}}</input>
-				<br>
-			{% endfor %}
-	</label>
+		{% for x in topic_list %}
+			<div class='checkbox'>
+				<label>
+					<input type="checkbox" name='interests' value={{x}}>{{x}}</input>
+				</label>
+			</div>
+		{% endfor %}
+	</label> 
+	<br> 
+	<div class='row'>
+		<div class="col-md-3 col-md-offset-9">
+			<input type='submit'>
+		</div>
+	</div>
+</form>
 {% endblock %}

@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html>
-	<head>
-  		<link type="text/css" rel="stylesheet" href="/static/main.css" />
-			<title>
-				Interest Network
-			</title>
-	</head>
+{% extends "base.html" %}
 
-	<body>
-		<center>
-		<div class='allClubs'>
+{% block title %}
+	All Clubs
+{% endblock %}
+			
+{% block content %}
+<div class="row">
+	{% for x in range(0, length) %}
+  		<div class="col-md-3">
+    	<div class="thumbnail" style='height:320px;'>
+     		<img src="{{clubs[x].picUrl}}" style="width:215px;height:230px;">
+      		<div class="caption">
+        		<center><h4><A href='/clubHome/{{clubIds[x]}}'>{{clubs[x].name}}</A></h4></center>
+      		</div>
+    	</div>
+  		</div>
+	{% endfor %}
+</div>
+<h5><A href='/'>Sign Up</A></h5>
+		<!-- <div class='allClubs'>
 			<h1>All Clubs</h1>
 			<right><h5><A href='/'>Sign Up</A></h5></right>
 				<table>
@@ -24,8 +33,6 @@
 					{% endfor %}
 					</tr>
 				{% endfor %}
+ -->
 
-
-		</center>
-	</body>
-</html>
+{% endblock %}

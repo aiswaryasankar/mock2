@@ -1,8 +1,31 @@
 {% extends 'homeBase.html' %}
 
 {% block headerBar %}
-	<table>
+ <div class="container">
+      <div class="jumbotron">
+      	<table>
 		<tr>
+			<td><img src = {{club.picUrl}} ></td>
+			<td>
+				<blockquote>
+      			<h2>{{club.name}}</h2>
+      			<h2><small>Meets on 
+						{% for m in club.days %}{{m}}, {% endfor %} in {{club.location}} during {{club.time}}</small></h2>
+
+      			<dl class="dl-horizontal">
+  					<dt>Interests</dt>
+  					<dd>{% for x in club.interests %}{{x}}, {% endfor %}</dd>
+					<dt>Officers</dt>
+					<dd>{% for m in offNames %}{{m}}, {% endfor %}</dd>
+					<dt>Club Adviser</dt>
+					<dd>{{club.adviser}}</dd>
+				</dl>
+				</blockquote>
+			</td>
+		</tr>
+        </table>
+
+		<!-- <tr>
 			<td><img src = {{club.picUrl}} ></td>
 			<td>
 				<table class= 'infoTable'>
@@ -30,7 +53,11 @@
 				</table>
 			</td>
 		</tr>
-	</table>
+	</table> -->
+      </div>
+</div> <!-- /container -->
+
+	
 {% endblock %}
 
 {% block newPost %}

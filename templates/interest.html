@@ -6,13 +6,26 @@
 			
 {% block content %}
 <form method='post'>
-	<!--<table style="width:100%">-->
-		{% for x in range (0,5) %} 
-			{{ int_list[x].render(num=x, int_list=int_list) | safe }}
-		{% endfor %}
-	<!-- </table> -->
-{% endblock %}
-{% block footer %}
-	{{super()}}
-{% endblock %}
+	<div class="row">
+	{% for topic, url in ALL_INTERESTS.iteritems() %}
+  		<div class="col-md-3">
+    	<div class="thumbnail" style='height:320px;'>
+     		{#<img src="{{int_list[x].picUrl}}" style="width:215px;height:230px;">#}
+
+     		<img src={{url}} style='width:215px;height:230px;'>
+      		<div class="caption">
+        		{#<center><h4><input type="checkbox" name='interests'
+				value={{(int_list[x].name).strip()}}>
+				{{(int_list[x].name).strip()}}</input></h4></center>#}
+
+				<center><h4><input type="checkbox" name='interests'
+				value={{topic.strip()}}>
+				{{topic.strip()}}</input></h4></center>
+      		</div>
+    	</div>
+  		</div>
+	{% endfor %}
+	</div>
+<input type='submit'>
 </form>
+{% endblock %}
